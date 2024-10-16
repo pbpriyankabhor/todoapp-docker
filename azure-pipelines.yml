@@ -19,6 +19,7 @@ variables:
 pool: 'Default'
 
 stages:
+
 - stage: Build
   displayName: Build and push stage
   jobs:
@@ -26,6 +27,11 @@ stages:
     displayName: Build
     pool: 'Default'
     steps:
+
+    - task: DockerInstaller@0
+      inputs:
+        dockerVersion: '17.09.0-ce'
+
     - task: AzureCLI@2
       inputs:
          azureSubscription: 'Pay-As-You-Go(40ba57a9-17b2-4fd6-a340-6b2ec4442b37)'
