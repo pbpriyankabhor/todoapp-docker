@@ -15,11 +15,8 @@ variables:
   containerRegistry: 'dockeradoyaml.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
-  
-  
 
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+pool: Default
 
 stages:
 - stage: Build
