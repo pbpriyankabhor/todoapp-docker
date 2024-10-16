@@ -29,6 +29,7 @@ stages:
     steps:
 
     - task: DockerInstaller@0
+      displayName: Install docker on agent 
       inputs:
         dockerVersion: '17.09.0-ce'
 
@@ -37,7 +38,7 @@ stages:
          azureSubscription: 'Pay-As-You-Go(40ba57a9-17b2-4fd6-a340-6b2ec4442b37)'
          scriptType: 'bash'
          scriptLocation: 'inlineScript'
-         inlineScript: 'az acr login --name=$(containerRegistry)'
+         inlineScript: 'az acr login --name=$(containerRegistry) '
 
     - task: Docker@2
       displayName: Build and push an image to container registry
